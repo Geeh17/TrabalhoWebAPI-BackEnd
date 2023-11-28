@@ -59,7 +59,6 @@ namespace AlunosApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Alunos.API", Version = "v1" });
 
-                // Habilitar autorização usando Swagger (JWT)  
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",

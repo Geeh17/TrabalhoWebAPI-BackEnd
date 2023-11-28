@@ -25,7 +25,7 @@ namespace AlunosApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        
         public async Task<ActionResult<IEnumerable<Aluno>>> GetAlunos()
         {
             try
@@ -36,7 +36,6 @@ namespace AlunosApi.Controllers
             catch
             {
                 return BadRequest("Request inválido");
-                //return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter alunos");
             }
         }
 
@@ -81,7 +80,6 @@ namespace AlunosApi.Controllers
             }
             catch
             {
-                //return BadRequest("Request inválido");
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao criar um novo aluno");
             }
         }
@@ -94,7 +92,6 @@ namespace AlunosApi.Controllers
                 if (aluno.Id == id)
                 {
                     await _alunoService.UpdateAluno(aluno);
-                    //return NoContent();
                     return Ok($"Aluno com id={id} atualizado com sucesso");
                 }
                 else
@@ -118,7 +115,7 @@ namespace AlunosApi.Controllers
                 {
                     await _alunoService.DeleteAluno(aluno);
                     return Ok($"Aluno de id={id} excluído com sucesso");
-                    //return Ok(id);
+                    
                 }
                 else
                 {
